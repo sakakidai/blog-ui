@@ -4,10 +4,14 @@ import tailwindConfig from '../tailwind.config';
 
 const tailwind = resolveConfig(tailwindConfig);
 
-const useBreakPoint = (breakpoint) => {
+export function useMaxBreakPoint(breakpoint) {
   return useMediaQuery({
     query: `(max-width: ${tailwind.theme.screens[breakpoint]})`,
   });
-};
+}
 
-export default useBreakPoint;
+export function useMinBreackPoint(breakpoint) {
+  return useMediaQuery({
+    query: `(min-width: ${tailwind.theme.screens[breakpoint]})`,
+  });
+}
