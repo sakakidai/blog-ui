@@ -3,9 +3,9 @@ import { MenuIcon } from '@heroicons/react/outline';
 
 const Header = ({ isPhone, onChangeMenu }) => {
   return (
-    <header className='bg-white flex items-center justify-center border-b h-10'>
+    <header className='bg-white flex items-center justify-center border-b h-14'>
       <div className='flex flex-grow items-center justify-between p-3'>
-        <h1>Home</h1>
+        <span className='text-xl font-bold tracking-wide'>Blog WebSite</span>
 
         {isPhone ? (
           <button

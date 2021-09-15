@@ -24,8 +24,7 @@ export default function Layout({ children, title }) {
         {isPhone && isOpenedSideMenu && (
           <Overlay onClosed={clickMenuIconHandler} />
         )}
-
-        <main className='flex flex-grow flex-col min-h-screen '>
+        <main className='flex flex-col min-h-screen'>
           <Header isPhone={isPhone} onChangeMenu={clickMenuIconHandler} />
           {children}
         </main>

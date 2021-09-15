@@ -2,7 +2,7 @@ import NavLinkItem from './NavLinkItem';
 
 const NavLinkList = () => {
   return (
-    <ul className='md:flex'>
+    <ul className='sm:flex'>
       <li className='p-3'>
         <NavLinkItem href='/'>Home</NavLinkItem>
       </li>
