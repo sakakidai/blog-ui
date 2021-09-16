@@ -7,7 +7,7 @@ const NavLinkList = () => {
         <NavLinkItem href='/'>Home</NavLinkItem>
       </li>
       <li className='p-3'>
-        <NavLinkItem href='/blog'>Blog</NavLinkItem>
+        <NavLinkItem href='/blogs'>Blog</NavLinkItem>
       </li>
       <li className='p-3'>
         <NavLinkItem href='/'>Contact</NavLinkItem>
