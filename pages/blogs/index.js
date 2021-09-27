@@ -1,7 +1,6 @@
 import { getAllBlogsData } from '../../lib/blogs';
 import Layout from '../../components/Layout';
 import BlogList from '../../components/Blogs/BlogList';
-import Image from 'next/image';
 
 const Blogs = ({ blogs }) => {
   return (
