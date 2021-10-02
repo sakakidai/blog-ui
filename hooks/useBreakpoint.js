@@ -10,7 +10,7 @@ export function useMaxBreakPoint(breakpoint) {
   });
 }
 
-export function useMinBreackPoint(breakpoint) {
+export function useMinBreakPoint(breakpoint) {
   return useMediaQuery({
     query: `(min-width: ${tailwind.theme.screens[breakpoint]})`,
   });

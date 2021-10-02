@@ -5,7 +5,9 @@ const Header = ({ isPhone, onChangeMenu }) => {
   return (
     <header className='bg-white flex items-center justify-center border-b h-14 w-full'>
       <div className='flex flex-grow items-center justify-between p-3'>
-        <span className='text-xl font-bold tracking-wide'>Blog WebSite</span>
+        <span className='text-xl font-bold tracking-wide'>
+          アイドルマッサージレビュー
+        </span>
 
         {isPhone ? (
           <button

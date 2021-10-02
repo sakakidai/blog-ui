@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { MyDate } from '../UI/MyDate';
+import BlogTable from './BlogTable';
+import TagList from '../UI/TagList';
+import Text from '../UI/Text';
 
 const BlogItem = ({ blog }) => {
   return (
-    <li className='rounded overflow-hidden shadow-lg'>
+    <li className='rounded overflow-hidden shadow-lg transition hover:opacity-60 duration-300 ease-in hover:bg-gray-300'>
       <Link href={`/blogs/${blog.id}`}>
-        <a>
+        <a className='block h-full'>
           <Image
             className='w-full'
             src={blog.thumbnail}
@@ -16,50 +18,12 @@ const BlogItem = ({ blog }) => {
           />
           <div className='px-6 py-4'>
             <div className='font-bold text-xl mb-4'>{blog.title}</div>
-            <table className='table-auto text-gray-700 text-base mb-4'>
-              <tbody>
-                <tr>
-                  <th className='pr-10'>名前</th>
-                  <td>
-                    {blog.idol.name}({blog.idol.age}歳)
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th>タイトル</th>
-                  <td>{blog.pieceTitle}</td>
-                </tr>
-                <tr>
-                  <th>発売日</th>
-                  <td>
-                    <MyDate dateString={blog.pieceReleaseOn} />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p className='whitespace-pre-wrap text-gray-700 text-base'>
-              {blog.shotOutline}
-            </p>
+            <BlogTable blog={blog} />
+            <Text>{blog.shotOutline}</Text>
           </div>
           <div className='px-6 pt-4 pb-2'>
-            {blog.genreList.map((genre) => (
-              <span
-                key={genre}
-                className='inline-block rounded-full px-3 py-1 text-sm font-semibold text-white
-                  bg-red-400 mr-2 mb-2'
-              >
-                {genre}
-              </span>
-            ))}
-            {blog.distributorList.map((distributor) => (
-              <span
-                key={distributor}
-                className='inline-block bg-yellow-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2'
-              >
-                {distributor}
-              </span>
-            ))}
+            <TagList tagList={blog.genreList} bgColor='bg-red-400' />
+            <TagList tagList={blog.distributorList} bgColor='bg-yellow-500' />
           </div>
         </a>
       </Link>

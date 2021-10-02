@@ -10,7 +10,7 @@ export default function Layout({ children, title }) {
   const [isOpenedSideMenu, setIsOpenedSideMenu] = useState(false);
   const isPhone = useMaxBreakPoint('sm');
 
-  const clickMenuIconHandler = () => {
+  const handleClickMenuIcon = () => {
     setIsOpenedSideMenu(!isOpenedSideMenu);
   };
 
@@ -22,15 +22,15 @@ export default function Layout({ children, title }) {
 
       <div className='font-mono bg-gray-100 flex'>
         {isPhone && isOpenedSideMenu && (
-          <Overlay onClosed={clickMenuIconHandler} />
+          <Overlay onClosed={handleClickMenuIcon} />
         )}
         <main className='flex flex-col min-h-screen w-full'>
-          <Header isPhone={isPhone} onChangeMenu={clickMenuIconHandler} />
+          <Header isPhone={isPhone} onChangeMenu={handleClickMenuIcon} />
           {children}
         </main>
 
         {isPhone && isOpenedSideMenu && (
-          <SideBar onClosed={clickMenuIconHandler} />
+          <SideBar onClosed={handleClickMenuIcon} />
         )}
       </div>
     </>
