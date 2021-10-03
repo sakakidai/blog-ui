@@ -4,6 +4,7 @@ import TagList from '../UI/TagList';
 import BlogTable from './BlogTable';
 import ContentImageList from './ContentImageList';
 import Text from '../UI/Text';
+import Title from '../UI/Title';
 
 const BlogDetail = ({ blog }) => {
   const [processing, setProcessing] = useState(false);
@@ -18,7 +19,7 @@ const BlogDetail = ({ blog }) => {
 
   return (
     <div className='m-5'>
-      <div className='font-bold text-xl mb-4'>{blog.title}</div>
+      <Title text={blog.title} />
       <Image
         className='w-full'
         src={blog.thumbnail}

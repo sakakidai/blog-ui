@@ -3,6 +3,7 @@ import Link from 'next/link';
 import BlogTable from './BlogTable';
 import TagList from '../UI/TagList';
 import Text from '../UI/Text';
+import Title from '../UI/Title';
 
 const BlogItem = ({ blog }) => {
   return (
@@ -17,7 +18,7 @@ const BlogItem = ({ blog }) => {
             height={450}
           />
           <div className='px-6 py-4'>
-            <div className='font-bold text-xl mb-4'>{blog.title}</div>
+            <Title text={blog.title} />
             <BlogTable blog={blog} />
             <Text>{blog.shotOutline}</Text>
           </div>
