@@ -1,10 +1,30 @@
-import { getAllBlogsData } from '../../lib/blogs';
+import React, { useState, useEffect } from 'react';
+import { getAllHomeData } from '../../lib/blogs';
+import { useRouter } from 'next/router';
+import { useBlogs } from '../../hooks/useBlog';
 import Layout from '../../components/Layout';
 import BlogList from '../../components/Blogs/BlogList';
 import BlogSideBar from '../../components/Blogs/BlogSideBar';
 
-const Blogs = ({ blogs, idols, genreList, distributorList }) => {
-  console.log(distributorList);
+const Blogs = ({ staticBlogs, idols, genreList, distributorList }) => {
+  const router = useRouter();
+  const [blogs, setBlogs] = useState(staticBlogs);
+  const queryParams = !!router.query.tag ? `?tag=${router.query.tag}` : '';
+  const { data, error } = useBlogs(queryParams);
+
+  useEffect(() => {
+    if (data) {
+      setBlogs(data);
+    }
+  }, [data]);
+
+  if (error) {
+    return <p>Failed to load.</p>;
+  }
+
+  if (!blogs) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <Layout title='ブログ一覧'>
@@ -24,14 +44,14 @@ const Blogs = ({ blogs, idols, genreList, distributorList }) => {
   );
 };
 
-export default Blogs;
-
 export async function getStaticProps() {
-  const data = await getAllBlogsData();
+  const data = await getAllHomeData();
   const [blogs, idols, genreList, distributorList] = data;
 
   return {
-    props: { blogs, idols, genreList, distributorList },
+    props: { staticBlogs: blogs, idols, genreList, distributorList },
     revalidate: 60,
   };
 }
+
+export default Blogs;

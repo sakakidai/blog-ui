@@ -26,7 +26,8 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    // TODO: ビルド時にエラーが出たのでfalseに設定
+    fallback: false,
   };
 };
 
