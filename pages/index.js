@@ -1,61 +1,16 @@
 import Layout from '../components/Layout';
 
 const Home = () => {
-  return (
-    <Layout title='Home'>
-      <p>
-        Home PageHome PageHome PageHome PageHome PageHome PageHome PageHome
-        PageHome PageHome PageHome PageHome Page
-      </p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-      <p>Home Page</p>
-    </Layout>
-  );
+  return;
+};
+
+export const getStaticProps = async () => {
+  return {
+    redirect: {
+      permanent: true,
+      destination: '/blogs',
+    },
+  };
 };
 
 export default Home;

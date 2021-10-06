@@ -7,7 +7,7 @@ import Title from '../UI/Title';
 
 const BlogItem = ({ blog }) => {
   return (
-    <li className='rounded overflow-hidden shadow-lg transition hover:opacity-60 duration-300 ease-in hover:bg-gray-300'>
+    <li className='rounded overflow-hidden shadow-lg transition duration-300 ease-in hover:opacity-60 hover:bg-gray-300'>
       <Link href={`/blogs/${blog.id}`}>
         <a className='block h-full'>
           <Image

@@ -39,8 +39,8 @@ const BlogDetail = ({ blog }) => {
 
       <div className='text-center mb-10'>
         <button
-          className={`hover:bg-red-200 text-white font-bold py-3 px-20 rounded ${
-            processing ? 'bg-red-200 pointer-events-none' : 'bg-red-400'
+          className={`text-white font-bold py-3 px-20 rounded transition-opacity ease-in duration-300 hover:opacity-60 ${
+            processing ? 'opacity-60 pointer-events-none' : 'bg-red-400'
           }`}
           onClick={handleClickSubmit}
         >

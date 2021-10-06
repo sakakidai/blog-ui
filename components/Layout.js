@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useMaxBreakPoint } from '../hooks/useBreakpoint';
 
 import Header from './Header';
+import Footer from './Footer';
 import SideBar from './Navigations/Phone/SideBar';
 import Overlay from './Navigations/Phone/Overlay';
 
@@ -27,6 +28,7 @@ export default function Layout({ children, title }) {
         <main className='flex flex-col min-h-screen w-full'>
           <Header isPhone={isPhone} onChangeMenu={handleClickMenuIcon} />
           {children}
+          <Footer />
         </main>
 
         {isPhone && isOpenedSideMenu && (
