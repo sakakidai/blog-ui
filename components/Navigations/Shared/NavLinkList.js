@@ -7,7 +7,7 @@ const NavLinkList = () => {
         <NavLinkItem href='/blogs'>ブログ一覧</NavLinkItem>
       </li>
       <li className='p-3'>
-        <NavLinkItem href='/'>サイトについて</NavLinkItem>
+        <NavLinkItem href='/about'>サイトについて</NavLinkItem>
       </li>
       <li className='p-3'>
         <NavLinkItem href='/'>問い合わせ</NavLinkItem>
