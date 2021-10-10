@@ -4,14 +4,16 @@ const BlogTable = ({ blog }) => {
   return (
     <table className='table-fixed text-gray-700 text-base my-3'>
       <tbody>
-        <tr>
-          <th className='text-left pr-3'>名前</th>
-          <td>
-            {blog.idol.name}
-            {blog.idol.age && `(${blog.idol.age}歳)`}
-          </td>
-          <td></td>
-        </tr>
+        {blog.idol && (
+          <tr>
+            <th className='text-left pr-3'>名前</th>
+            <td>
+              {blog.idol.name}
+              {blog.idol.age && `(${blog.idol.age}歳)`}
+            </td>
+            <td></td>
+          </tr>
+        )}
         <tr>
           <th className='text-left pr-3'>タイトル</th>
           <td>{blog.pieceTitle}</td>

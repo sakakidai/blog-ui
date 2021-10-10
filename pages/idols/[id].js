@@ -1,0 +1,52 @@
+import { getAllIdolIds, getIdolData } from '../../lib/idols';
+import { getSidebarData } from '../../lib/sidebar';
+
+import Layout from '../../components/Layout';
+import BlogList from '../../components/Blogs/BlogList';
+import BlogSideBar from '../../components/Blogs/BlogSideBar';
+import IdolDetail from '../../components/Idols/IdolDetail';
+
+export const Idol = ({ idol, sidebar }) => {
+  return (
+    <Layout title={idol.name}>
+      <div className='p-5 grid grid-cols-1 lg:grid-cols-12'>
+        <div className='col-span-1 lg:col-span-9'>
+          <div>
+            <IdolDetail idol={idol} />
+          </div>
+          <div>
+            <BlogList blogs={idol.blogs} />
+          </div>
+        </div>
+        <div className='col-span-1 lg:col-span-3 mx-3'>
+          <BlogSideBar
+            idols={sidebar.idols}
+            genreList={sidebar.genreList}
+            distributorList={sidebar.distributorList}
+          />
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export const getStaticPaths = async () => {
+  const paths = await getAllIdolIds();
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const idol = await getIdolData(params.id);
+  const sidebar = await getSidebarData();
+
+  return {
+    props: { idol, sidebar },
+    revalidate: 60,
+  };
+};
+
+export default Idol;
