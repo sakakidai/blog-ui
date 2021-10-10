@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { getAllHomeData } from '../../lib/blogs';
+import { getAllBlogsData, getSidebarData } from '../../lib/blogs';
 import { useRouter } from 'next/router';
 import { useBlogs } from '../../hooks/useBlog';
 import Layout from '../../components/Layout';
 import BlogList from '../../components/Blogs/BlogList';
 import BlogSideBar from '../../components/Blogs/BlogSideBar';
 
-const Blogs = ({ staticBlogs, idols, genreList, distributorList }) => {
+const Blogs = ({ staticBlogs, sidebar }) => {
   const router = useRouter();
   const [blogs, setBlogs] = useState(staticBlogs);
   const queryParams = !!router.query.tag ? `?tag=${router.query.tag}` : '';
@@ -32,11 +32,11 @@ const Blogs = ({ staticBlogs, idols, genreList, distributorList }) => {
         <div className='col-span-1 lg:col-span-9'>
           <BlogList blogs={blogs} />
         </div>
-        <div className='col-span-1 lg:col-span-3 text-center flex flex-col mx-3'>
+        <div className='col-span-1 lg:col-span-3 mx-3'>
           <BlogSideBar
-            idols={idols}
-            genreList={genreList}
-            distributorList={distributorList}
+            idols={sidebar.idols}
+            genreList={sidebar.genreList}
+            distributorList={sidebar.distributorList}
           />
         </div>
       </div>
@@ -44,14 +44,14 @@ const Blogs = ({ staticBlogs, idols, genreList, distributorList }) => {
   );
 };
 
-export async function getStaticProps() {
-  const data = await getAllHomeData();
-  const [blogs, idols, genreList, distributorList] = data;
+export const getStaticProps = async () => {
+  const blogs = await getAllBlogsData();
+  const sidebar = await getSidebarData();
 
   return {
-    props: { staticBlogs: blogs, idols, genreList, distributorList },
+    props: { staticBlogs: blogs, sidebar },
     revalidate: 60,
   };
-}
+};
 
 export default Blogs;

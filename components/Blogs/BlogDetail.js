@@ -9,16 +9,16 @@ import Title from '../UI/Title';
 const BlogDetail = ({ blog }) => {
   const [processing, setProcessing] = useState(false);
 
-  const handleClickSubmit = () => {
+  const handleClickSubmit = (redirectUrl) => {
     if (processing) return;
 
     setProcessing(true);
-    location.href = 'https://www.ameamelog.com/html-a-button/';
+    location.href = redirectUrl;
     setProcessing(false);
   };
 
   return (
-    <div className='m-5'>
+    <div>
       <Title text={blog.title} />
       <Image
         className='w-full'
@@ -38,14 +38,17 @@ const BlogDetail = ({ blog }) => {
       </div>
 
       <div className='text-center mb-10'>
-        <button
-          className={`text-white font-bold py-3 px-20 rounded transition-opacity ease-in duration-300 hover:opacity-60 ${
-            processing ? 'opacity-60 pointer-events-none' : 'bg-red-400'
-          }`}
-          onClick={handleClickSubmit}
-        >
-          動画を見る
-        </button>
+        {blog.distributors.map((distributor) => (
+          <button
+            key={distributor.id}
+            className={`text-white font-bold py-3 px-20 rounded transition-opacity ease-in duration-300 hover:opacity-60 ${
+              processing ? 'opacity-60 pointer-events-none' : 'bg-red-400'
+            }`}
+            onClick={() => handleClickSubmit(distributor.url)}
+          >
+            {`${distributor.name}で詳細を見る`}
+          </button>
+        ))}
       </div>
     </div>
   );

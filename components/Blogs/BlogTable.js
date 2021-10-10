@@ -7,7 +7,8 @@ const BlogTable = ({ blog }) => {
         <tr>
           <th className='text-left pr-3'>名前</th>
           <td>
-            {blog.idol.name}({blog.idol.age}歳)
+            {blog.idol.name}
+            {blog.idol.age && `(${blog.idol.age}歳)`}
           </td>
           <td></td>
         </tr>
