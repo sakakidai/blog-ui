@@ -18,7 +18,7 @@ export default function Layout({ children, title }) {
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>{`アイドルマッサージレビュー | ${title}`}</title>
       </Head>
 
       <div className='font-mono bg-gray-100 flex'>
