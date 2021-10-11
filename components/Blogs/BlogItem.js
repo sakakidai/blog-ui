@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import BlogTable from './BlogTable';
+import BlogCreatedAtLabel from './BlogCreatedAtLabel';
 import TagList from '../UI/TagList';
 import Text from '../UI/Text';
 import Title from '../UI/Title';
@@ -19,6 +20,7 @@ const BlogItem = ({ blog }) => {
           />
           <div className='px-6 py-4'>
             <Title text={blog.title} />
+            <BlogCreatedAtLabel createdAt={blog.createdAt} />
             <BlogTable blog={blog} />
             <Text>{blog.shotOutline}</Text>
           </div>

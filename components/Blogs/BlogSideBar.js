@@ -4,7 +4,7 @@ import IdolList from '../Idols/IdolList';
 
 const BlogSideBar = ({ idols, genreList, distributorList }) => {
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center mx-3'>
       <div className='mb-5 text-center'>
         <Title text='ジャンル一覧' />
         <BlogTagList tagList={genreList} bgColor='bg-red-400' />
