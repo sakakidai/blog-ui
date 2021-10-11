@@ -10,7 +10,7 @@ const NavLinkList = () => {
         <NavLinkItem href='/about'>サイトについて</NavLinkItem>
       </li>
       <li className='p-3'>
-        <NavLinkItem href='/'>問い合わせ</NavLinkItem>
+        <NavLinkItem href='/contact'>問い合わせ</NavLinkItem>
       </li>
     </ul>
   );
