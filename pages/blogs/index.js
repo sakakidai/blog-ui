@@ -22,7 +22,14 @@ const Blogs = ({ staticBlogs, sidebar }) => {
   }, [data]);
 
   if (error) {
-    return <Custom500 />;
+    console.log(error);
+
+    return (
+      <div>
+        <p>{error}</p>
+        <Custom500 />
+      </div>
+    );
   }
 
   if (!blogs) {
