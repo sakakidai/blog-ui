@@ -7,6 +7,7 @@ import Layout from '../../components/Layout';
 import BlogList from '../../components/Blogs/BlogList';
 import BlogSideBar from '../../components/Blogs/BlogSideBar';
 import BorderDashTitle from '../../components/UI/BorderDashTitle';
+import Custom500 from '../500';
 
 const Blogs = ({ staticBlogs, sidebar }) => {
   const router = useRouter();
@@ -21,7 +22,7 @@ const Blogs = ({ staticBlogs, sidebar }) => {
   }, [data]);
 
   if (error) {
-    return <p>Failed to load.</p>;
+    return <Custom500 />;
   }
 
   if (!blogs) {
