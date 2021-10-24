@@ -8,7 +8,7 @@ export const IdolDetail = ({ idol }) => {
       <div className='flex flex-col justify-center items-center max-w-lg w-full'>
         <BorderDashTitle classes='text-center'>
           {idol.name}
-          {idol.age && `(${idol.age}歳)`}
+          {idol.age && `(現在 ${idol.age}歳)`}
         </BorderDashTitle>
         <div className='mb-5'>
           <Image
