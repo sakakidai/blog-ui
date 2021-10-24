@@ -5,7 +5,7 @@ import BorderDashTitle from '../UI/BorderDashTitle';
 export const IdolDetail = ({ idol }) => {
   return (
     <div className='flex justify-center'>
-      <div className='flex flex-col justify-center items-center max-w-lg'>
+      <div className='flex flex-col justify-center items-center max-w-lg w-full'>
         <BorderDashTitle classes='text-center'>
           {idol.name}
           {idol.age && `(${idol.age}歳)`}

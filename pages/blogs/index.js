@@ -22,11 +22,8 @@ const Blogs = ({ staticBlogs, sidebar }) => {
   }, [data]);
 
   if (error) {
-    console.log(error);
-
     return (
       <div>
-        <p>{error}</p>
         <Custom500 />
       </div>
     );
