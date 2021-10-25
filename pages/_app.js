@@ -1,31 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import * as gtag from '../lib/gtag';
 import NProgress from 'nprogress';
 
 import '../styles/globals.css';
 import 'nprogress/nprogress.css';
 import 'tailwindcss/tailwind.css';
 
-// 未使用
-import Loader from '../components/Loader';
-
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = (url) => {
-      NProgress.start();
-      setLoading(true);
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
     };
-    const handleStop = (url) => {
+    const handleStart = (_url) => {
+      NProgress.start();
+    };
+    const handleStop = (_url) => {
       NProgress.done();
-      setLoading(false);
     };
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleStop);
     router.events.on('routeChangeError', handleStop);
-  }, [router]);
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleStop);
+      router.events.off('routeChangeError', handleStop);
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
