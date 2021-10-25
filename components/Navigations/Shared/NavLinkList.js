@@ -4,7 +4,7 @@ const NavLinkList = () => {
   return (
     <ul className='sm:flex'>
       <li className='p-3'>
-        <NavLinkItem href='/blogs'>ブログ一覧</NavLinkItem>
+        <NavLinkItem href='/blogs'>レビュー一覧</NavLinkItem>
       </li>
       <li className='p-3'>
         <NavLinkItem href='/about'>サイトについて</NavLinkItem>

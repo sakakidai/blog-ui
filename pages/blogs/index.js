@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllBlogsData, getSidebarData } from '../../lib/blogs';
 import { useRouter } from 'next/router';
 import { useBlogs } from '../../hooks/useBlog';
+import { NextSeo, BlogJsonLd } from 'next-seo';
 
 import Layout from '../../components/Layout';
 import BlogList from '../../components/Blogs/BlogList';
@@ -34,24 +35,39 @@ const Blogs = ({ staticBlogs, sidebar }) => {
   }
 
   return (
-    <Layout title='ブログ一覧'>
-      <div className='p-5 grid grid-cols-1 lg:grid-cols-12'>
-        <div className='col-span-1 lg:col-span-9 py-5'>
-          <BorderDashTitle classes='pl-5'>
-            {`レビュー一覧`}
-            {queryParams && `(${router.query.tag})`}
-          </BorderDashTitle>
-          <BlogList blogs={blogs} />
+    <>
+      <NextSeo
+        title='レビュー一覧'
+        description='グラビアアイドルのマッサージ動画をレビューするサイトです。DMM動画のレビューを主に行っています。'
+      />
+      <BlogJsonLd
+        url='https://idol-review.com/blogs'
+        title='アイドルマッサージレビュー'
+        images={blogs.map((blog) => blog.thumbnail)}
+        datePublished={blogs[0].createdAt}
+        dateModified={blogs[0].createdAt}
+        authorName='Sakaki'
+        description='グラビアアイドルのマッサージ動画をレビューするサイトです。DMM動画のレビューを主に行っています。'
+      />
+      <Layout>
+        <div className='p-5 grid grid-cols-1 lg:grid-cols-12'>
+          <div className='col-span-1 lg:col-span-9 py-5'>
+            <BorderDashTitle classes='pl-5'>
+              {`レビュー一覧`}
+              {queryParams && `(${router.query.tag})`}
+            </BorderDashTitle>
+            <BlogList blogs={blogs} />
+          </div>
+          <div className='col-span-1 lg:col-span-3 py-5'>
+            <BlogSideBar
+              idols={sidebar.idols}
+              genreList={sidebar.genreList}
+              distributorList={sidebar.distributorList}
+            />
+          </div>
         </div>
-        <div className='col-span-1 lg:col-span-3 py-5'>
-          <BlogSideBar
-            idols={sidebar.idols}
-            genreList={sidebar.genreList}
-            distributorList={sidebar.distributorList}
-          />
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo';
 import { getAllIdolIds, getIdolData } from '../../lib/idols';
 import { getSidebarData } from '../../lib/sidebar';
 
@@ -9,26 +10,29 @@ import BorderDashTitle from '../../components/UI/BorderDashTitle';
 
 export const Idol = ({ idol, sidebar }) => {
   return (
-    <Layout title={idol.name}>
-      <div className='p-5 grid grid-cols-1 lg:grid-cols-12'>
-        <div className='col-span-1 lg:col-span-9'>
-          <div className='py-5'>
-            <IdolDetail idol={idol} />
+    <>
+      <NextSeo title={idol.name} description={idol.comment} />
+      <Layout>
+        <div className='p-5 grid grid-cols-1 lg:grid-cols-12'>
+          <div className='col-span-1 lg:col-span-9'>
+            <div className='py-5'>
+              <IdolDetail idol={idol} />
+            </div>
+            <div className='py-5'>
+              <BorderDashTitle classes='pl-5'>{`${idol.name}のレビュー一覧`}</BorderDashTitle>
+              <BlogList blogs={idol.blogs} />
+            </div>
           </div>
-          <div className='py-5'>
-            <BorderDashTitle classes='pl-5'>{`${idol.name}のレビュー一覧`}</BorderDashTitle>
-            <BlogList blogs={idol.blogs} />
+          <div className='col-span-1 lg:col-span-3 py-5'>
+            <BlogSideBar
+              idols={sidebar.idols}
+              genreList={sidebar.genreList}
+              distributorList={sidebar.distributorList}
+            />
           </div>
         </div>
-        <div className='col-span-1 lg:col-span-3 py-5'>
-          <BlogSideBar
-            idols={sidebar.idols}
-            genreList={sidebar.genreList}
-            distributorList={sidebar.distributorList}
-          />
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 
