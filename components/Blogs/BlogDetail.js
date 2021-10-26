@@ -25,18 +25,6 @@ const BlogDetail = ({ blog }) => {
     setProcessing(false);
   };
 
-  const handleClickSubmitTest = (distributor) => {
-    if (processing) return;
-
-    setProcessing(true);
-    gtag.event({
-      action: 'submit_distributor',
-      category: distributor.name,
-      label: blog.pieceTitle + ' ' + blog.idol.name,
-    });
-    setProcessing(false);
-  };
-
   return (
     <div>
       <div className='mb-4'>
@@ -70,19 +58,6 @@ const BlogDetail = ({ blog }) => {
             onClick={() => handleClickSubmit(distributor)}
           >
             {`${distributor.name}で詳細を見る`}
-          </button>
-        ))}
-      </div>
-      <div className='flex flex-col items-center'>
-        {blog.distributors.map((distributor) => (
-          <button
-            key={distributor.id}
-            className={`text-white font-bold py-3 w-72 my-2 rounded block transition-opacity ease-in duration-300 hover:opacity-60 ${
-              processing ? 'opacity-60 pointer-events-none' : 'bg-red-400'
-            }`}
-            onClick={() => handleClickSubmitTest(distributor)}
-          >
-            {`${distributor.name}で詳細を見る(テスト用)`}
           </button>
         ))}
       </div>
