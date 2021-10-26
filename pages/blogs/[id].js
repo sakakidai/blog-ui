@@ -9,8 +9,11 @@ import BlogSideBar from '../../components/Blogs/BlogSideBar';
 const Blog = ({ blog, sidebar }) => {
   return (
     <>
-      <NextSeo title={blog.pieceTitle} description={blog.title} />
-      <Layout title={blog.title}>
+      <NextSeo
+        title={blog.pieceTitle + ' ' + blog.idol.name}
+        description={blog.title}
+      />
+      <Layout>
         <div className='p-5 grid grid-cols-1 md:grid-cols-9 lg:grid-cols-12 gap-2'>
           <div className='hidden lg:col-span-3 lg:inline-block p-5'>
             <IdolDetail idol={blog.idol} />

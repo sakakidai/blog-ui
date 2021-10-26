@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import * as gtag from '../lib/gtag';
+import { existsGaId, pageview } from '../lib/gtag';
 import NProgress from 'nprogress';
+import GoogleAnalytics from '../components/GoogleAnalytics';
 
 import '../styles/globals.css';
 import 'nprogress/nprogress.css';
@@ -12,7 +13,9 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      gtag.pageview(url);
+      if (existsGaId) {
+        pageview(url);
+      }
     };
     const handleStart = (_url) => {
       NProgress.start();
@@ -35,6 +38,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <GoogleAnalytics />
       <Component {...pageProps} />
     </>
   );

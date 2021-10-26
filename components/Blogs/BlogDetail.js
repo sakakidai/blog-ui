@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as gtag from '../../lib/gtag';
 
 import Image from 'next/image';
 import TagList from '../UI/TagList';
@@ -11,11 +12,16 @@ import BlogCreatedAtLabel from './BlogCreatedAtLabel';
 const BlogDetail = ({ blog }) => {
   const [processing, setProcessing] = useState(false);
 
-  const handleClickSubmit = (redirectUrl) => {
+  const handleClickSubmit = (distributor) => {
     if (processing) return;
 
     setProcessing(true);
-    location.href = redirectUrl;
+    gtag.event({
+      action: 'submit_distributor',
+      category: distributor.name,
+      label: blog.pieceTitle + ' ' + blog.idol.name,
+    });
+    location.href = distributor.url;
     setProcessing(false);
   };
 
@@ -49,7 +55,7 @@ const BlogDetail = ({ blog }) => {
             className={`text-white font-bold py-3 w-72 my-2 rounded block transition-opacity ease-in duration-300 hover:opacity-60 ${
               processing ? 'opacity-60 pointer-events-none' : 'bg-red-400'
             }`}
-            onClick={() => handleClickSubmit(distributor.url)}
+            onClick={() => handleClickSubmit(distributor)}
           >
             {`${distributor.name}で詳細を見る`}
           </button>
