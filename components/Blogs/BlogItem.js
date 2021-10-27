@@ -26,7 +26,7 @@ const BlogItem = ({ blog }) => {
           </div>
           <div className='px-6 pt-4 pb-2'>
             <TagList tagList={blog.genreList} bgColor='bg-red-400' />
-            <TagList tagList={blog.distributorList} bgColor='bg-yellow-500' />
+            <TagList tagList={blog.saleList} bgColor='bg-yellow-500' />
           </div>
         </a>
       </Link>

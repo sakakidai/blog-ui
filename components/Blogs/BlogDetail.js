@@ -45,7 +45,7 @@ const BlogDetail = ({ blog }) => {
       <div className='text-xl my-3'>
         <p className='mb-2'>タグ</p>
         <TagList tagList={blog.genreList} bgColor='bg-red-400' />
-        <TagList tagList={blog.distributorList} bgColor='bg-yellow-500' />
+        <TagList tagList={blog.saleList} bgColor='bg-yellow-500' />
       </div>
 
       <div className='flex flex-col items-center'>
