@@ -1,12 +1,15 @@
 import NavLinkList from './Navigations/Shared/NavLinkList';
 import { MenuIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
 
 const Header = ({ isPhone, onChangeMenu }) => {
   return (
     <header className='bg-white flex items-center justify-center border-b h-14 w-full'>
       <div className='flex flex-grow items-center justify-between p-3'>
         <span className='text-xl font-bold tracking-wide'>
-          アイドルマッサージレビュー
+          <Link href='/'>
+            <a>アイドルマッサージレビュー</a>
+          </Link>
         </span>
 
         {isPhone ? (
