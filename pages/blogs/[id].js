@@ -47,6 +47,12 @@ export const getStaticProps = async ({ params }) => {
   const blog = await getBlogData(params.id);
   const sidebar = await getSidebarData();
 
+  if (blog.errors.status === '404') {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: { blog, sidebar },
     revalidate: 60,
