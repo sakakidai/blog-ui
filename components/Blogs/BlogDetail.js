@@ -37,6 +37,7 @@ const BlogDetail = ({ blog }) => {
         alt='Blog Pice Image or Thumbnail'
         width={1600}
         height={900}
+        priority={true}
       />
       <BlogTable blog={blog} />
       <Text classes='my-6'>{blog.outline}</Text>
