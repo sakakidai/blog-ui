@@ -6,10 +6,7 @@ export const IdolDetail = ({ idol }) => {
   return (
     <div className='flex justify-center'>
       <div className='flex flex-col justify-center items-center max-w-lg w-full'>
-        <BorderDashTitle classes='text-center'>
-          {idol.name}
-          {idol.age && `(現在 ${idol.age}歳)`}
-        </BorderDashTitle>
+        <BorderDashTitle classes='text-center'>{idol.name}</BorderDashTitle>
         <div className='mb-5'>
           <Image
             className='w-full rounded-full'
