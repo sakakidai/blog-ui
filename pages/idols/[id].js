@@ -49,6 +49,12 @@ export const getStaticProps = async ({ params }) => {
   const idol = await getIdolData(params.id);
   const sidebar = await getSidebarData();
 
+  if (!idol) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: { idol, sidebar },
     revalidate: 60,
