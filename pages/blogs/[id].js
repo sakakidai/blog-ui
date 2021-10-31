@@ -10,8 +10,8 @@ const Blog = ({ blog, sidebar }) => {
   return (
     <>
       <NextSeo
-        title={blog.pieceTitle + ' ' + blog.idol.name}
-        description={blog.title}
+        title={blog.idol.name + ' ' + blog.pieceTitle}
+        description={blog.shotOutline}
       />
       <Layout>
         <div className='p-5 grid grid-cols-1 md:grid-cols-9 lg:grid-cols-12 gap-2'>

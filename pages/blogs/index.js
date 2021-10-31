@@ -38,7 +38,7 @@ const Blogs = ({ staticBlogs, sidebar }) => {
     <>
       <NextSeo
         title='レビュー一覧'
-        description='グラビアアイドルのマッサージ動画をレビューするサイトです。DMM動画のレビューを主に行っています。'
+        description='グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。'
       />
       <Layout>
         <div className='p-5 grid grid-cols-1 lg:grid-cols-12'>

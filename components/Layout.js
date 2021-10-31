@@ -22,7 +22,7 @@ export default function Layout({ children, title }) {
     <>
       {title && (
         <Head>
-          <title>{`${title} | アイドルマッサージレビュー`}</title>
+          <title>{`${title} | アイドルレビューズ`}</title>
         </Head>
       )}
       <DefaultSeo {...SEO} />
