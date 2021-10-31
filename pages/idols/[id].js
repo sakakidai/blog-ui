@@ -27,7 +27,7 @@ export const Idol = ({ idol, sidebar }) => {
             <BlogSideBar
               idols={sidebar.idols}
               genreList={sidebar.genreList}
-              distributorList={sidebar.distributorList}
+              saleList={sidebar.saleList}
             />
           </div>
         </div>
