@@ -8,7 +8,7 @@ const Header = ({ isPhone, onChangeMenu }) => {
       <div className='flex flex-grow items-center justify-between p-3'>
         <span className='text-xl font-bold tracking-wide'>
           <Link href='/'>
-            <a>アイドルマッサージレビューズ</a>
+            <a>アイドルレビューズ</a>
           </Link>
         </span>
 
