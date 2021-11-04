@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.4",
+    "@hookform/resolvers": "^2.8.3",
     "axios": "^0.21.4",
     "date-fns": "^2.24.0",
     "next": "11.1.2",
@@ -20,8 +21,10 @@
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hook-form": "^7.18.1",
     "react-responsive": "^9.0.0-beta.4",
-    "swr": "^1.0.1"
+    "swr": "^1.0.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.4",
