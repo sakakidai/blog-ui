@@ -4,6 +4,9 @@ import { existsGaId, pageview } from '../lib/gtag';
 import NProgress from 'nprogress';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 
+import { DefaultSeo } from 'next-seo';
+import SEO from '../lib/next-seo.config';
+
 import '../styles/globals.css';
 import 'nprogress/nprogress.css';
 import 'tailwindcss/tailwind.css';
@@ -39,6 +42,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GoogleAnalytics />
+      <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </>
   );

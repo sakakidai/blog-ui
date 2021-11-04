@@ -7,9 +7,6 @@ import Footer from './Footer';
 import SideBar from './Navigations/Phone/SideBar';
 import Overlay from './Navigations/Phone/Overlay';
 
-import { DefaultSeo } from 'next-seo';
-import SEO from '../lib/next-seo.config';
-
 export default function Layout({ children, title }) {
   const [isOpenedSideMenu, setIsOpenedSideMenu] = useState(false);
   const isPhone = useMaxBreakPoint('sm');
@@ -25,7 +22,6 @@ export default function Layout({ children, title }) {
           <title>{`${title} | アイドルレビューズ`}</title>
         </Head>
       )}
-      <DefaultSeo {...SEO} />
 
       <div className='font-mono bg-gray-100 flex'>
         {isPhone && isOpenedSideMenu && (

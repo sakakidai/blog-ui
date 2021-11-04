@@ -1,5 +1,5 @@
 import { getAllBlogsData, getSidebarData } from '../lib/blogs';
-import { NextSeo, BlogJsonLd } from 'next-seo';
+import { NextSeo } from 'next-seo';
 
 import Layout from '../components/Layout';
 import BlogList from '../components/Blogs/BlogList';
