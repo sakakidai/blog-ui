@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import BlogList from '../components/Blogs/BlogList';
 import BlogSideBar from '../components/Blogs/BlogSideBar';
 import BorderDashTitle from '../components/UI/BorderDashTitle';
+import DmmWidgeBanner from '../components/Scripts/DmmWidgetBanner';
 
 const Home = ({ blogs, sidebar }) => {
   return (
@@ -14,8 +15,9 @@ const Home = ({ blogs, sidebar }) => {
         description='グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。'
       />
       <Layout>
-        <div className='p-5 grid grid-cols-1 lg:grid-cols-12'>
+        <div className='px-5 grid grid-cols-1 lg:grid-cols-12'>
           <div className='col-span-1 lg:col-span-9 py-5'>
+            <DmmWidgeBanner />
             <BorderDashTitle classes='pl-5'>レビュー一覧</BorderDashTitle>
             <BlogList blogs={blogs} />
           </div>
