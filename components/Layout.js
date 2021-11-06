@@ -6,6 +6,7 @@ import Header from './Header';
 import Footer from './Footer';
 import SideBar from './Navigations/Phone/SideBar';
 import Overlay from './Navigations/Phone/Overlay';
+import ReturnTopButton from '../components/UI/ReturnTopButton';
 
 export default function Layout({ children, title }) {
   const [isOpenedSideMenu, setIsOpenedSideMenu] = useState(false);
@@ -32,6 +33,7 @@ export default function Layout({ children, title }) {
           <div className='h-full'>{children}</div>
           <Footer />
         </main>
+        <ReturnTopButton />
 
         {isPhone && isOpenedSideMenu && (
           <SideBar onClosed={handleClickMenuIcon} />
