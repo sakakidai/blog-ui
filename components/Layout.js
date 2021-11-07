@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { useMaxBreakPoint } from '../hooks/useBreakpoint';
+import { Transition } from 'react-transition-group';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -9,6 +10,15 @@ import Overlay from './Navigations/Phone/Overlay';
 import ReturnTopButton from '../components/UI/ReturnTopButton';
 
 export default function Layout({ children, title }) {
+  const TransitionClass = {
+    entering:
+      'transform -translate-x-80 transition duration-500 ease-in-out opacity-1',
+    entered: 'transform -translate-x-80 opacity-1',
+    exiting:
+      'transform translate-x-80 transition duration-1000 ease-in-out opacity-0',
+    exited: 'transform translate-x-80 opacity-0',
+  };
+
   const [isOpenedSideMenu, setIsOpenedSideMenu] = useState(false);
   const isPhone = useMaxBreakPoint('sm');
 
@@ -33,11 +43,18 @@ export default function Layout({ children, title }) {
           <div className='h-full'>{children}</div>
           <Footer />
         </main>
-        <ReturnTopButton />
 
-        {isPhone && isOpenedSideMenu && (
-          <SideBar onClosed={handleClickMenuIcon} />
-        )}
+        <Transition in={isPhone && isOpenedSideMenu} timeout={1500}>
+          {(state) => (
+            <div
+              className={`fixed -right-80 z-20 ${state} ${TransitionClass[state]}`}
+            >
+              <SideBar onClosed={handleClickMenuIcon} />
+            </div>
+          )}
+        </Transition>
+
+        <ReturnTopButton />
       </div>
     </>
   );

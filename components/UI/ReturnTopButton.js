@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import smoothscroll from 'smoothscroll-polyfill';
 import { PlayIcon } from '@heroicons/react/outline';
 
 const ReturnTopButton = () => {
@@ -12,6 +13,7 @@ const ReturnTopButton = () => {
   };
 
   useEffect(() => {
+    smoothscroll.polyfill();
     window.addEventListener('scroll', scrollWindow);
 
     return () => {

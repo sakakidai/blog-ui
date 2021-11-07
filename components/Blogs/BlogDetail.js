@@ -54,7 +54,7 @@ const BlogDetail = ({ blog }) => {
           <button
             key={distributor.id}
             className={`text-white font-bold py-3 w-72 my-2 rounded block transition-opacity ease-in duration-300 hover:opacity-60 ${
-              processing ? 'opacity-60 pointer-events-none' : 'bg-red-400'
+              processing ? 'opacity-60 pointer-events-none' : 'bg-yellow-500'
             }`}
             onClick={() => handleClickSubmit(distributor)}
           >

@@ -12,7 +12,10 @@ const DmmWidgeBanner = () => {
   }, []);
 
   return (
-    <div id='widget-banner-wrapper' className='flex justify-center mb-5'>
+    <div
+      id='widget-banner-wrapper'
+      className='flex justify-center items-center mb-5 sm:h-24 h-10'
+    >
       <ins className='widget-banner'></ins>
     </div>
   );
