@@ -9,13 +9,18 @@ import BlogList from '../../components/Blogs/BlogList';
 import BlogSideBar from '../../components/Blogs/BlogSideBar';
 import BorderDashTitle from '../../components/UI/BorderDashTitle';
 import DmmWidgeBanner from '../../components/Scripts/DmmWidgetBanner';
+import Pagination from '../../components/UI/Pagination';
 import Custom500 from '../500';
 
 const Blogs = ({ staticBlogs, sidebar }) => {
   const router = useRouter();
   const [blogs, setBlogs] = useState(staticBlogs);
-  const queryParams = !!router.query.tag ? `?tag=${router.query.tag}` : '';
-  const { data, error } = useBlogs(queryParams);
+  const [asPath, setAsPath] = useState('/blogs');
+  const { data, error } = useBlogs(asPath);
+
+  useEffect(() => {
+    setAsPath(router.asPath);
+  }, [router.query]);
 
   useEffect(() => {
     if (data) {
@@ -32,7 +37,7 @@ const Blogs = ({ staticBlogs, sidebar }) => {
   }
 
   if (!blogs) {
-    return <p>Loading...</p>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -47,6 +52,7 @@ const Blogs = ({ staticBlogs, sidebar }) => {
             <DmmWidgeBanner />
             <BorderDashTitle classes='pl-5'>{`レビュー一覧`}</BorderDashTitle>
             <BlogList blogs={blogs} />
+            <Pagination />
           </div>
           <div className='col-span-1 lg:col-span-3 py-5'>
             <BlogSideBar

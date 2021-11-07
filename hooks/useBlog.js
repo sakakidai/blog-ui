@@ -3,9 +3,9 @@ import useSWR from 'swr';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_SERVER;
 
-export const useBlogs = (queryParams) => {
+export const useBlogs = (asPath) => {
   const fetcher = (url) => axios.get(url).then((res) => res.data);
-  const { data, error } = useSWR(`${apiUrl}/blogs${queryParams}`, fetcher);
+  const { data, error } = useSWR(`${apiUrl}/${asPath}`, fetcher);
 
   return { data: data, error };
 };
