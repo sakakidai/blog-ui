@@ -10,7 +10,7 @@ const Blog = ({ blog, sidebar }) => {
   return (
     <>
       <NextSeo
-        title={blog.idol.name + ' ' + blog.pieceTitle}
+        title={blog.idol.name + '「' + blog.pieceTitle + '」'}
         description={blog.shotOutline}
       />
       <Layout>
