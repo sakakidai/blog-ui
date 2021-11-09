@@ -1,44 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { getAllBlogsData, getSidebarData } from '../../lib/blogs';
 import { useRouter } from 'next/router';
-import { useBlogs } from '../../hooks/useBlog';
 import { NextSeo } from 'next-seo';
 
 import Layout from '../../components/Layout';
-import BlogList from '../../components/Blogs/BlogList';
 import BlogSideBar from '../../components/Blogs/BlogSideBar';
 import BorderDashTitle from '../../components/UI/BorderDashTitle';
 import DmmWidgeBanner from '../../components/Scripts/DmmWidgetBanner';
-import Pagination from '../../components/UI/Pagination';
-import Custom500 from '../500';
+import BlogsListWithPagination from '../../components/Blogs/BlogsListWithPagination';
 
-const Blogs = ({ staticBlogs, sidebar }) => {
+const BlogsPage = ({ data, sidebar }) => {
   const router = useRouter();
-  const [blogs, setBlogs] = useState(staticBlogs);
-  const [asPath, setAsPath] = useState('/blogs');
-  const { data, error } = useBlogs(asPath);
+  const [tag, setTag] = useState(null);
 
   useEffect(() => {
-    setAsPath(router.asPath);
+    setTag(router.query.tag);
   }, [router.query]);
 
-  useEffect(() => {
-    if (data) {
-      setBlogs(data);
+  const tagElement = () => {
+    if (tag) {
+      return '(' + tag + ')';
+    } else {
+      return '';
     }
-  }, [data]);
-
-  if (error) {
-    return (
-      <div>
-        <Custom500 />
-      </div>
-    );
-  }
-
-  if (!blogs) {
-    return <div>Loading...</div>;
-  }
+  };
 
   return (
     <>
@@ -50,9 +35,8 @@ const Blogs = ({ staticBlogs, sidebar }) => {
         <div className='px-5 grid grid-cols-1 lg:grid-cols-12'>
           <div className='col-span-1 lg:col-span-9 py-5'>
             <DmmWidgeBanner />
-            <BorderDashTitle classes='pl-5'>{`レビュー一覧`}</BorderDashTitle>
-            <BlogList blogs={blogs} />
-            <Pagination />
+            <BorderDashTitle classes='pl-5'>{`レビュー一覧${tagElement()}`}</BorderDashTitle>
+            <BlogsListWithPagination initialData={data} />
           </div>
           <div className='col-span-1 lg:col-span-3 py-5'>
             <BlogSideBar
@@ -68,13 +52,16 @@ const Blogs = ({ staticBlogs, sidebar }) => {
 };
 
 export const getStaticProps = async () => {
-  const blogs = await getAllBlogsData();
+  const data = await getAllBlogsData();
   const sidebar = await getSidebarData();
 
   return {
-    props: { staticBlogs: blogs, sidebar },
+    props: {
+      data,
+      sidebar,
+    },
     revalidate: 60,
   };
 };
 
-export default Blogs;
+export default BlogsPage;

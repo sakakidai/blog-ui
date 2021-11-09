@@ -1,0 +1,53 @@
+#react-paginate ul {
+  display: flex;
+}
+
+#react-paginate li {
+  display: inline-block;
+}
+
+#react-paginate ul li a {
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(209, 213, 219, 1);
+  color: rgba(107, 114, 128, 1);
+  padding-left: 1rem /* 16px */;
+  padding-right: 1rem /* 16px */;
+  padding-top: 0.5rem /* 8px */;
+  padding-bottom: 0.5rem /* 8px */;
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem;
+  font-weight: 500;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  border-width: 1px;
+  height: 2.5rem;
+}
+
+#react-paginate ul li a:hover {
+  background-color: rgba(249, 250, 251, 1);
+}
+
+#react-paginate ul li.previous a {
+  border-top-left-radius: 8px;
+  -webkit-border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  border-bottom-left-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+}
+
+#react-paginate ul li.next a {
+  border-top-right-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+}
+
+#react-paginate ul li.active a {
+  border-color: rgba(245, 158, 11, 1);
+  background-color: rgba(254, 243, 199, 1);
+}
