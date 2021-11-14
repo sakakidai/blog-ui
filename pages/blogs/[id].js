@@ -13,7 +13,11 @@ const Blog = ({ blog, sidebar }) => {
         title={blog.idol.name + '「' + blog.pieceTitle + '」'}
         description={blog.shotOutline}
       />
-      <Layout>
+      <Layout
+        idols={sidebar.idols}
+        genreList={sidebar.genreList}
+        saleList={sidebar.saleList}
+      >
         <div className='p-5 grid grid-cols-1 md:grid-cols-9 lg:grid-cols-12 gap-2'>
           <div className='hidden lg:col-span-3 lg:inline-block p-5'>
             <IdolDetail idol={blog.idol} />
@@ -21,7 +25,7 @@ const Blog = ({ blog, sidebar }) => {
           <Card classes='grid-cols-1 md:col-span-6 bg-white p-5'>
             <BlogDetail blog={blog} />
           </Card>
-          <div className='grid-cols-1 md:col-span-3 py-5'>
+          <div className='grid-cols-1 md:col-span-3 sm:py-5'>
             <BlogSideBar
               idols={sidebar.idols}
               genreList={sidebar.genreList}

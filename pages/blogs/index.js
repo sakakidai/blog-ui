@@ -31,14 +31,18 @@ const BlogsPage = ({ data, sidebar }) => {
         title='レビュー一覧'
         description='グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。'
       />
-      <Layout>
+      <Layout
+        idols={sidebar.idols}
+        genreList={sidebar.genreList}
+        saleList={sidebar.saleList}
+      >
         <div className='px-5 grid grid-cols-1 lg:grid-cols-12'>
           <div className='col-span-1 lg:col-span-9 py-5'>
             <DmmWidgeBanner />
             <BorderDashTitle classes='pl-5'>{`レビュー一覧${tagElement()}`}</BorderDashTitle>
             <BlogsListWithPagination initialData={data} />
           </div>
-          <div className='col-span-1 lg:col-span-3 py-5'>
+          <div className='col-span-1 lg:col-span-3 sm:py-5'>
             <BlogSideBar
               idols={sidebar.idols}
               genreList={sidebar.genreList}

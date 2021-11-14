@@ -9,9 +9,7 @@ const BlogTagList = ({ tagList, bgColor, textColor = 'text-white' }) => {
           className={`${bgColor} ${textColor} inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 transition-opacity ease-in duration-300 hover:opacity-60`}
         >
           <Link href={`/blogs?tag=${tag.name}`}>
-            <a>
-              {tag.name} {tag.taggingsCount}件
-            </a>
+            <a>{`${tag.name}(${tag.taggingsCount}件)`}</a>
           </Link>
         </button>
       ))}

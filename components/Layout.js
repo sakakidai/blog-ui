@@ -9,7 +9,13 @@ import SideBar from './Navigations/Phone/SideBar';
 import Overlay from './Navigations/Phone/Overlay';
 import ReturnTopButton from '../components/UI/ReturnTopButton';
 
-export default function Layout({ children, title }) {
+export default function Layout({
+  children,
+  title,
+  idols,
+  genreList,
+  saleList,
+}) {
   const TransitionClass = {
     entering:
       'transform -translate-x-80 transition duration-500 ease-in-out opacity-1',
@@ -49,7 +55,12 @@ export default function Layout({ children, title }) {
             <div
               className={`fixed -right-80 z-20 ${state} ${TransitionClass[state]}`}
             >
-              <SideBar onClosed={handleClickMenuIcon} />
+              <SideBar
+                onClosed={handleClickMenuIcon}
+                idols={idols}
+                genreList={genreList}
+                saleList={saleList}
+              />
             </div>
           )}
         </Transition>

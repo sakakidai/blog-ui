@@ -12,7 +12,11 @@ export const Idol = ({ idol, sidebar }) => {
   return (
     <>
       <NextSeo title={idol.name} description={idol.comment} />
-      <Layout>
+      <Layout
+        idols={sidebar.idols}
+        genreList={sidebar.genreList}
+        saleList={sidebar.saleList}
+      >
         <div className='p-5 grid grid-cols-1 lg:grid-cols-12'>
           <div className='col-span-1 lg:col-span-9'>
             <div className='py-5'>
@@ -23,7 +27,7 @@ export const Idol = ({ idol, sidebar }) => {
               <BlogList blogs={idol.blogs} />
             </div>
           </div>
-          <div className='col-span-1 lg:col-span-3 py-5'>
+          <div className='col-span-1 lg:col-span-3 sm:py-5'>
             <BlogSideBar
               idols={sidebar.idols}
               genreList={sidebar.genreList}
