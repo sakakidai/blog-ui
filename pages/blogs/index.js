@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllBlogsData, getSidebarData } from '../../lib/blogs';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 
 import Layout from '../../components/Layout';
 import BlogSideBar from '../../components/Blogs/BlogSideBar';
@@ -38,12 +39,23 @@ const BlogsPage = ({ data, sidebar }) => {
           site_name: 'アイドルレビューズ',
           images: [{ url: 'https://idol-review.com/idol-review-home.png' }],
         }}
-        twitter={{
-          handle: '@mr.luigi',
-          site: '@mrluigi93754901',
-          cardType: 'summary_large_image',
-        }}
       />
+      <Head>
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:domain' content='idol-review.com' />
+        <meta
+          name='twitter:title'
+          content='アイドルレビューズ - レビュー一覧'
+        />
+        <meta
+          name='twitter:description'
+          content='グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。'
+        />
+        <meta
+          name='twitter:image'
+          content='https://idol-review.com/idol-review-home.png'
+        />
+      </Head>
       <Layout
         idols={sidebar.idols}
         genreList={sidebar.genreList}
