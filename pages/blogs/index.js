@@ -39,6 +39,8 @@ const BlogsPage = ({ data, sidebar }) => {
           images: [{ url: 'https://idol-review.com/idol-review-home.png' }],
         }}
         twitter={{
+          handle: '@mr.luigi',
+          site: '@mrluigi93754901',
           cardType: 'summary_large_image',
         }}
       />
