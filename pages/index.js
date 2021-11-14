@@ -1,4 +1,5 @@
-import { getAllBlogsData, getSidebarData } from '../lib/blogs';
+import { getAllBlogsData } from '../lib/blogs';
+import { getSidebarData } from '../lib/sidebar';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import Head from 'next/head';

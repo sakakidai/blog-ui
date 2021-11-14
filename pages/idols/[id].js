@@ -1,6 +1,7 @@
-import { NextSeo } from 'next-seo';
 import { getAllIdolIds, getIdolData } from '../../lib/idols';
 import { getSidebarData } from '../../lib/sidebar';
+import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 
 import Layout from '../../components/Layout';
 import BlogList from '../../components/Blogs/BlogList';
@@ -11,7 +12,27 @@ import BorderDashTitle from '../../components/UI/BorderDashTitle';
 export const Idol = ({ idol, sidebar }) => {
   return (
     <>
-      <NextSeo title={idol.name} description={idol.comment} />
+      <NextSeo
+        title={idol.name}
+        description={idol.comment}
+        openGraph={{
+          title: `アイドルレビューズ - ${idol.name}`,
+          description: idol.comment,
+          url: `https://idol-review.com/idols/${idol.id}`,
+          site_name: 'アイドルレビューズ',
+          images: [{ url: idol.image }],
+        }}
+      />
+      <Head>
+        <meta name='twitter:card' content='summary' />
+        <meta name='twitter:domain' content='idol-review.com' />
+        <meta
+          name='twitter:title'
+          content={`アイドルレビューズ - ${idol.name}`}
+        />
+        <meta name='twitter:description' content={idol.comment} />
+        <meta name='twitter:image' content={idol.image} />
+      </Head>
       <Layout
         idols={sidebar.idols}
         genreList={sidebar.genreList}

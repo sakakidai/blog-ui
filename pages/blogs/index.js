@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getAllBlogsData, getSidebarData } from '../../lib/blogs';
+import { getAllBlogsData } from '../../lib/blogs';
+import { getSidebarData } from '../../lib/sidebar';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
