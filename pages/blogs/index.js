@@ -31,6 +31,9 @@ const BlogsPage = ({ data, sidebar }) => {
         title='レビュー一覧'
         description='グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。'
         openGraph={{
+          title: 'アイドルレビューズ - レビュー一覧',
+          description:
+            'グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。',
           url: 'https://idol-review.com/',
           site_name: 'アイドルレビューズ',
           images: [{ url: 'https://idol-review.com/idol-review-home.png' }],
