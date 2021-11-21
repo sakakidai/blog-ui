@@ -16,7 +16,7 @@ export const Idol = ({ idol, sidebar }) => {
         title={idol.name}
         description={idol.comment}
         openGraph={{
-          title: `アイドルレビューズ - ${idol.name}`,
+          title: `${idol.name} - アイドルレビューズ `,
           description: idol.comment,
           url: `https://idol-review.com/idols/${idol.id}`,
           site_name: 'アイドルレビューズ',
@@ -28,7 +28,7 @@ export const Idol = ({ idol, sidebar }) => {
         <meta name='twitter:domain' content='idol-review.com' />
         <meta
           name='twitter:title'
-          content={`アイドルレビューズ - ${idol.name}`}
+          content={`${idol.name} - アイドルレビューズ`}
         />
         <meta name='twitter:description' content={idol.comment} />
         <meta name='twitter:image' content={idol.image} />

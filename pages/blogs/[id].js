@@ -13,10 +13,10 @@ const Blog = ({ blog, sidebar }) => {
   return (
     <>
       <NextSeo
-        title={`${blog.idol.name}「${blog.pieceTitle}」`}
+        title={`${blog.idol.name}「${blog.pieceTitle}」画像レビュー`}
         description={blog.shotOutline}
         openGraph={{
-          title: `アイドルレビューズ - ${blog.idol.name}「${blog.pieceTitle}」`,
+          title: `${blog.idol.name}「${blog.pieceTitle}」画像レビュー - アイドルレビューズ`,
           description: blog.shotOutline,
           url: `https://idol-review.com/blogs/${blog.id}`,
           site_name: 'アイドルレビューズ',
@@ -28,7 +28,7 @@ const Blog = ({ blog, sidebar }) => {
         <meta name='twitter:domain' content='idol-review.com' />
         <meta
           name='twitter:title'
-          content={`アイドルレビューズ - ${blog.idol.name}「${blog.pieceTitle}」`}
+          content={`${blog.idol.name}「${blog.pieceTitle}」画像レビュー - アイドルレビューズ`}
         />
         <meta name='twitter:description' content={blog.shotOutline} />
         <meta name='twitter:image' content={blog.pieceImage} />

@@ -31,11 +31,11 @@ const BlogsPage = ({ data, sidebar }) => {
     <>
       <NextSeo
         title='レビュー一覧'
-        description='グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。'
+        description='グラビアアイドルのマッサージ動画を画像ありでレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。'
         openGraph={{
-          title: 'アイドルレビューズ - レビュー一覧',
+          title: 'レビュー一覧 - アイドルレビューズ',
           description:
-            'グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。',
+            'グラビアアイドルのマッサージ動画を画像ありでレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。',
           url: 'https://idol-review.com/blogs',
           site_name: 'アイドルレビューズ',
           images: [{ url: 'https://idol-review.com/idol-review-home.png' }],
@@ -46,11 +46,11 @@ const BlogsPage = ({ data, sidebar }) => {
         <meta name='twitter:domain' content='idol-review.com' />
         <meta
           name='twitter:title'
-          content='アイドルレビューズ - レビュー一覧'
+          content='レビュー一覧 - アイドルレビューズ'
         />
         <meta
           name='twitter:description'
-          content='グラビアアイドルのマッサージ動画をレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。マッサージ以外のジャンルもたまにレビューします。'
+          content='グラビアアイドルのマッサージ動画を画像ありでレビューするサイト「アイドルレビューズ」です。新作のDMMアイドル動画のレビューを主に行っています。'
         />
         <meta
           name='twitter:image'
