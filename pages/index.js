@@ -27,6 +27,10 @@ const Home = ({ blogs, sidebar }) => {
         }}
       />
       <Head>
+        <meta
+          name='google-site-verification'
+          content='rKYyR_Vh7c2vt3kBSqphVX41HbvK3T8pNHVjoGzEk5s'
+        />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:domain' content='idol-review.com' />
         <meta name='twitter:title' content='アイドルレビューズ' />
